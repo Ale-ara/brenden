@@ -1,0 +1,315 @@
+<html lang="pt-BR" dir="ltr"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>[OM] Verificação de Aulas</title>
+        <link rel="icon" href="https://www.habbo.com.br/habbo-imaging/badge/b09134s43114s41194f74f3131b8a5c9311558ee0f561db7e0.gif">
+    <link rel="stylesheet" href="css.css">
+    <meta name="viewport" content="width=device-width, initial-scales=1.0">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+        html {
+            height: 100%;
+            background: linear-gradient(90deg, #265646, #437362);
+            background-size: 200% 200%;
+            background-attachment: fixed;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            overflow-y: auto;
+            background: transparent;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .logo {
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            margin: 0 auto;
+            position: relative;
+            z-index: 0;
+            margin-top: 40px;
+        }
+
+        .form-container, .cursoss-container {
+            margin-top: -20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+            height: 62px;
+            background-color: #E7E7E7;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #282828;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-container input:focus,
+        .form-container select:focus,
+        .form-container textarea:focus {
+            border-color: #f26dff;
+        }
+
+        .form-container input::placeholder,
+        .form-container textarea::placeholder {
+            color: #282828;
+        }
+
+        .form-container select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            padding-right: 30px;
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 16px 16px;
+        }
+
+        .form-container button {
+            height: 68px;
+            background-color: #265646;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: #265646;
+        }
+
+        .form-container .row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .form-container .row input,
+        .form-container .row select,
+        .form-container .row textarea {
+            flex: 1;
+            height: 62px;
+            background-color: #E7E7E7;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            color: #282828;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-container .row input:focus,
+        .form-container .row select:focus,
+        .form-container .row textarea:focus {
+            border-color: #f26dff;
+        }
+
+        .form-container .row input::placeholder,
+        .form-container .row textarea::placeholder {
+            color: #282828;
+        }
+
+        .cursoss-container {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .cursoss-container.visible {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cursos-tag {
+            display: inline-block;
+            padding: 15px 20px;
+            background-color: #E7E7E7;
+            color: #282828;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cursos-tag.received {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            float: left;
+        }
+
+        .credits {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #BF74C7;
+            font-size: 14px;
+            color: #ffffffc8;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .credits p strong {
+            color: #ffffff;
+        }
+
+        .credits.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.imgur.com/u2kuurE.png" alt="Logo" class="logo">
+        <div class="form-container">
+            <form id="searchForm">
+                <div class="inputGroup">
+                  
+                    <div class="row">
+                        <div class="avatar" id="avatarContainer"></div>
+                        <input type="text" id="nickname" name="nickname" placeholder="Insira o nickname do aluno." oninput="updateAvatar()">
+                        <button type="button" onclick="searchCursoss()">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="cursoss-container" id="cursossContainer">
+          
+        </div>
+    </div>
+
+    <div class="credits">
+        <p><i class="fas fa-code"></i> Desenvolvimento: <strong></strong> | <i class="fas fa-palette"></i> Design: <strong>.Brendon</strong></p>
+        <p class="line-break"><i class="far fa-registered"></i> Todos os direitos reservados à <strong>Subcompanhia Ordem Militar</strong></p>
+    </div>
+
+    <script>
+       
+        const availableCursoss = ["ASO", "AVP", "AJ", "ASD", "EM", "AI"];
+
+        // Coloquei os nomes de exemplos aq
+        const cursossData = {
+            "João Silva": ["ASO", "EM"],
+            "Maria Santos": ["AVP", "AJ"],
+            "Pedro Almeida": ["ASD"],
+            "Carla Souza": ["AI"]
+        };
+
+        function searchCursoss() {
+            const nickname = document.getElementById('nickname').value.trim();
+            const cursossContainer = document.getElementById('cursossContainer');
+            const formContainer = document.querySelector('.form-container');
+            cursossContainer.innerHTML = '';  
+
+         
+            availableCursoss.forEach(cursos => {
+                const cursosTag = document.createElement('div');
+                cursosTag.className = 'cursos-tag';
+                cursosTag.textContent = cursos;
+                
+             
+                if (nickname !== '' && cursossData.hasOwnProperty(nickname) && cursossData[nickname].includes(cursos)) {
+                    cursosTag.classList.add('received');
+                }
+
+                cursossContainer.appendChild(cursosTag);
+            });
+
+            // Mostra o contêiner de cursos
+            formContainer.classList.add('collapsed');
+            setTimeout(() => {
+                document.querySelector('.cursoss-container').classList.add('visible');
+            }, 300);
+        }
+
+        function updateAvatar() {
+            const nickname = document.getElementById('nickname').value.trim().toLowerCase();
+            const avatarContainer = document.getElementById('avatarContainer');
+
+            // imagens merda
+            const avatarImages = {
+                "joão silva": "https://i.imgur.com/6VtSh9V.png",
+                "maria santos": "https://i.imgur.com/WScXsPM.png",
+                "pedro almeida": "https://i.imgur.com/AsiR8Xe.png",
+                "carla souza": "https://i.imgur.com/Bixap9w.png"
+            };
+            if (nickname) {
+    avatarContainer.style.backgroundImage = `url(https://www.habbo.com.br/habbo-imaging/avatarimage?img_format=png&user=${nickname}&direction=3&head_direction=3&size=l&gesture=sml&action=wlk)`;
+} else {
+    avatarContainer.style.backgroundImage = 'none';
+}
+
+        }
+    </script>
+</body>
+</html>
